@@ -20,14 +20,14 @@ if st.button("Generate"):
     prompt = prompt_template.format(number=number, raga=Raga)
 
     try:
-        response = openai.ChatCompletion.create(
-            model="gpt-4o-mini",  
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
             messages=[
                 {"role": "system", "content": "You are a helpful assistant knowledgeable in Indian classical music."},
                 {"role": "user", "content": prompt}
             ],
             temperature=0.7
         )
-        st.write(response['choices'][0]['message']['content'])
+        st.write(response.choices[0].message.content)
     except Exception as e:
         st.error(f"Error: {e}")
