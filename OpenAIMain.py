@@ -2,8 +2,8 @@ import streamlit as st
 import openai
 import os
 
-# Set OpenAI API key
-openai.api_key = os.getenv("OPENAI_API_KEY", st.secrets.get("OPENAI_API_KEY", None))
+# Set your API key
+client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY", st.secrets.get("OPENAI_API_KEY", None)))
 
 # Streamlit UI
 st.header("Raga Info Generator - Sinnakkrishnan")
